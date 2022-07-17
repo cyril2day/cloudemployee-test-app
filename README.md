@@ -2,6 +2,8 @@
 
 A front-end test app based on Vue 3 & Typescript.
 
+Link is provided for a [live preview](https://cloudemployee-test-app-cyril2day.vercel.app/)
+
 ## Setting Up
 
 ```bash
