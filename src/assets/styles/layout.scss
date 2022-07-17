@@ -1,0 +1,124 @@
+/* APP LAYOUTS */
+.app__wrapper {
+   display: grid;
+   grid-template-columns: repeat(12, 1fr);
+}
+
+.header__main {
+   grid-column: 1/13;
+}
+
+.sidebar__main {
+   grid-column: 1/13;
+   grid-row: 2;
+   display: none;
+}
+
+.sidebar__logo {
+   display: none;
+}
+
+.sidebar__menu {
+   padding: 0;
+   margin: 0;
+}
+
+.sidebar__menu-item {
+   padding: 1em;
+
+   &:hover {
+      background: var(--blue3);
+      color: var(--white);
+   }
+}
+
+.page-container {
+   grid-column: 1/13;
+   grid-row: 3;
+}
+
+
+/* MEDIA QUERIES */
+
+// xs screens
+@media screen and (min-width: $xs) {
+   /* */
+}
+
+// xs to med screens
+@media screen and (min-width: $xs) and (max-width: $md) {
+   .sidebar__main {
+      display: block;
+   }
+
+   .header__menu-toggler {
+      display: none;
+   }
+}
+
+@media screen and (min-width: $sm) {
+   .sidebar__logo {
+      display: block;
+   }
+}
+
+@media screen and (min-width: $sm) and (max-width: $lg) {
+   .app__wrapper {
+      grid-template-rows: repeat(10, 1fr);
+   }
+
+   .header__main {
+      grid-column: 3/13;
+      height: 54px;
+   }
+
+   .header__create-plan {
+      background: var(--green6)!important;
+   }
+
+   .sidebar__main {
+      grid-column: 1/3;
+      grid-row: 1/11;
+      background: var(--blue2);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+   }
+
+   .sidebar__logo {
+      display: flex;
+      background: var(--blue2);
+      height: 140px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      img {
+         width: 40px;
+      }
+
+      span {
+         margin-top: 20px;
+         color: var(--white);
+         font-size: 0.8em;
+      }
+   }
+
+   .sidebar__menu {
+      background: var(--blue1);
+      height: 100%;
+   }
+
+   .sidebar__menu-item {
+      color: var(--white);
+
+      &:hover {
+         background: var(--blue2);
+      }
+   }
+
+   .page-container {
+      grid-column: 3/13;
+      grid-row: 2/11;
+   }
+}

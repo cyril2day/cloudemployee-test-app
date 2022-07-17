@@ -1,0 +1,23 @@
+:root {
+   /* COLORS */
+   --primary: #1976d2;
+   --secondary: #26a69a;
+   --dark: #1d1d1d;
+   --white: #fafafa;
+   --success: #21ba45;
+   --error: #c10015;
+   --info: #31ccec;
+   --warning: #f2c037;
+
+   --blue1: #1976d2;
+   --blue2: #1e88e5;
+   --blue3: #64b5f6;
+
+   --green6: #4caf50;
+}
+
+/* BREAKPOINTS */
+$xs: 600px;
+$sm: 1024px;
+$md: 1440px;
+$lg: 1920px;
