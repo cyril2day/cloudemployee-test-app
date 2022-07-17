@@ -53,7 +53,7 @@ const showMenu = () => {
    }
 
    button:hover {
-      background: var(--blue2);
+      background: var(--blue4);
    }
 
    .header__create-plan:hover {
