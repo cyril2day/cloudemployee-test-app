@@ -46,7 +46,7 @@
 }
 
 // xs to med screens
-@media screen and (min-width: $xs) and (max-width: $md) {
+@media screen and (min-width: $sm) {
    .sidebar__main {
       display: block;
    }
@@ -113,7 +113,7 @@
       color: var(--white);
 
       &:hover {
-         background: var(--blue2);
+         background: var(--blue3);
       }
    }
 
