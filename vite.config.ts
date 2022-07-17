@@ -11,7 +11,7 @@ export default defineConfig({
   plugins: [
     vue(),
     AutoImport({
-      imports: ['vue', 'vitest'],
+      imports: ['vue', 'vitest', 'vue-router'],
       dts: './src/auto-imports.d.ts'
     }),
     Icons({ /* options */ }),
