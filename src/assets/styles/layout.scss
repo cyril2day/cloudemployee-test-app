@@ -30,10 +30,12 @@
 }
 
 .sidebar__menu-item {
-   padding: 1em;
+   a {
+      padding: 1em;
+      color: var(--dark);
+   }
 
    &:hover {
-      background: var(--blue3);
       color: var(--white);
    }
 }
@@ -123,8 +125,8 @@
    .sidebar__menu-item {
       color: var(--white);
 
-      &:hover {
-         background: var(--blue3);
+      a {
+         color: var(--white);
       }
    }
 
