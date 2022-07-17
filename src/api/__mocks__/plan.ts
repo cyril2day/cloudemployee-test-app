@@ -1,4 +1,4 @@
-import { data } from 'src/stores/sampleData'
+import { data } from '../../stores/sampleData'
 
 const getPlansResponseOK = {
    data: [ ...data.plans  ]
