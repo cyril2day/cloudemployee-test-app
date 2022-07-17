@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-const message = ref('message')
+const message = ref('Plan List Page')
 </script>
 
 <template>
