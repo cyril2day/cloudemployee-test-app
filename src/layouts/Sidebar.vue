@@ -18,8 +18,8 @@ const props = defineProps({
       <div class="sidebar__menu">
          <ul class='sidebar__menu--upper'>
             <label>Administrator</label>
-            <li class='sidebar__menu-item'><a>Home</a></li>
-            <li class='sidebar__menu-item'><a>Plans</a></li>
+            <li class='sidebar__menu-item'><router-link to='/'>Home</router-link></li>
+            <li class='sidebar__menu-item'><router-link to='/plan'>Plans</router-link></li>
          </ul>
 
          <ul class='sidebar__menu--lower'>
@@ -50,5 +50,14 @@ const props = defineProps({
 
 .sidebar__menu-item {
    cursor: pointer;
+
+   a {
+      display: block;
+      text-decoration: none;
+   }
+}
+
+.router-link-exact-active {
+   background: var(--blue3);
 }
 </style>
