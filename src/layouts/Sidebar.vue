@@ -12,7 +12,7 @@ const props = defineProps({
    <section class='sidebar__main' :class="{ show: props.menuState }">
       <div class='sidebar__logo'>
          <img :src="ContinuityLogo">
-         <span>Donald Trump</span>
+         <h3>Donald Trump</h3>
       </div>
 
       <div class="sidebar__menu">

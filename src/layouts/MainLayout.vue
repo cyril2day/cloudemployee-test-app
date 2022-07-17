@@ -18,6 +18,6 @@ const handleShowMenuEvent = (event: boolean) => {
       <Sidebar :menu-state='menuDisplayState' />
 
       <!-- page container --> 
-      <div class='page-container'><router-view /></div>
+      <section class='page-container'><router-view /></section>
    </div>
 </template>
