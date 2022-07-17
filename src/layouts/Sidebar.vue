@@ -15,10 +15,17 @@ const props = defineProps({
          <span>Donald Trump</span>
       </div>
 
-      <ul class='sidebar__menu'>
-         <li class='sidebar__menu-item'><a>Home</a></li>
-         <li class='sidebar__menu-item'><a>Plans</a></li>
-      </ul>
+      <div class="sidebar__menu">
+         <ul class='sidebar__menu--upper'>
+            <label>Administrator</label>
+            <li class='sidebar__menu-item'><a>Home</a></li>
+            <li class='sidebar__menu-item'><a>Plans</a></li>
+         </ul>
+
+         <ul class='sidebar__menu--lower'>
+            <li class='sidebar__menu-item'><a>Account</a></li>
+         </ul>
+      </div>
    </section>
 </template>
 
@@ -32,7 +39,13 @@ const props = defineProps({
 }
 
 .sidebar__menu {
-   list-style-type: none;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+
+   ul {
+      list-style-type: none;
+   }
 }
 
 .sidebar__menu-item {

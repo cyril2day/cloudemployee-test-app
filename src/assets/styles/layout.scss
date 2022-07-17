@@ -19,8 +19,14 @@
 }
 
 .sidebar__menu {
-   padding: 0;
-   margin: 0;
+   ul {
+      padding: 0;
+      margin: 0;
+
+      label {
+         display: none;
+      }
+   }
 }
 
 .sidebar__menu-item {
@@ -42,7 +48,6 @@
 
 // xs screens
 @media screen and (min-width: $xs) {
-   /* */
 }
 
 // xs to med screens
@@ -54,9 +59,7 @@
    .header__menu-toggler {
       display: none;
    }
-}
 
-@media screen and (min-width: $sm) {
    .sidebar__logo {
       display: block;
    }
@@ -100,13 +103,21 @@
       span {
          margin-top: 20px;
          color: var(--white);
-         font-size: 0.8em;
+         font-size: 0.9em;
       }
    }
 
    .sidebar__menu {
       background: var(--blue1);
       height: 100%;
+
+      ul label {
+         display: block;
+         color: var(--white);
+         font-size: 0.9em;
+         padding: 10px;
+         margin-top: 5px;
+      }
    }
 
    .sidebar__menu-item {
