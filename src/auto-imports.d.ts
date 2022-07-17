@@ -58,6 +58,8 @@ declare global {
   const useAttrs: typeof import('vue')['useAttrs']
   const useCssModule: typeof import('vue')['useCssModule']
   const useCssVars: typeof import('vue')['useCssVars']
+  const useRoute: typeof import('vue-router')['useRoute']
+  const useRouter: typeof import('vue-router')['useRouter']
   const useSlots: typeof import('vue')['useSlots']
   const vi: typeof import('vitest')['vi']
   const vitest: typeof import('vitest')['vitest']
