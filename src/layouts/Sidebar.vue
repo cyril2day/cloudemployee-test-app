@@ -31,7 +31,7 @@ const props = defineProps({
 
 <style lang='scss'>
 .show {
-   display: block;
+   display: block!important;
 }
 
 .sidebar__main {
