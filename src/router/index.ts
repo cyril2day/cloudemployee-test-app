@@ -10,7 +10,7 @@ const routes = [
    {
       path: '/plan',
       name: 'Plan',
-      component: () => import('src/pages/plan/ListPage.vue')
+      component: () => import('src/pages/Plan/ListPage.vue')
    }
 ]
 
