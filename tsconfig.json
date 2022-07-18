@@ -13,6 +13,10 @@
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true
   },
+  "paths": {
+      "src/*": ["./src/*"],
+      "app/*": ["*"]
+  },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/**/__test__/**/*.spec.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
