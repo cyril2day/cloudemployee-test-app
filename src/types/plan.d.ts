@@ -3,8 +3,12 @@ export type Plan = {
    name: string
    description: string
    status: 'Active' | 'Inactive'
-   type: 'Plan' | 'Sub Business Function' | 'Activity'
-   children?: PlanChild[]
+   type: 'Plan'
+   children?: SubBusinessFunction[]
 }
 
-export type PlanChild = Pick<Plan, 'id' | 'name' | 'type' | 'children'>
+export type PlanChild = Pick<Plan, 'id' | 'name'> & 
+   {
+      parentId: string
+      type: 'Sub Business Function' | 'Activity'
+   }
