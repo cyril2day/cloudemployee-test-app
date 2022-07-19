@@ -31,6 +31,7 @@ const showMenu = () => {
 <style lang='scss'>
 .header__nav-brand {
    color: var(--white);
+   padding: 0 8px;
 }
 .header__nav {
    background: var(--blue1);
@@ -50,6 +51,10 @@ const showMenu = () => {
       margin: 8px;
       padding: 10px;
       border-radius: 2px;
+   }
+
+   .header__menu-toggler {
+      margin: 8px 0;
    }
 
    button:hover {
