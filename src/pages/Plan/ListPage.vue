@@ -1,14 +1,19 @@
 <script setup lang='ts'>
+import { storeToRefs } from 'pinia';
 import DescriptionList from '../../components/DescriptionList/DescriptionList.vue';
 import DescriptionListItem from '../../components/DescriptionList/DescriptionListItem.vue';
 import usePlanStore from '../../stores/plan';
-import { data } from '../../stores/sampleData'
 
-const { plans } = data
+
+const { plans, flattenedData } = storeToRefs(usePlanStore())
+const plansData = computed(() => plans.value)
 
 onBeforeMount(async() => {
-   // usePlanStore().TestGetPlans(data.plans)
    await usePlanStore().Fetch()
+   .then(() => {
+      usePlanStore().GetPlans(flattenedData.value)
+      usePlanStore().GetPlanChildren(flattenedData.value)
+   })
 })
 </script>
 
@@ -27,9 +32,9 @@ onBeforeMount(async() => {
       <section class='plan-list__left-section'>LEFT FILTER</section>
 
       <section class='plan-list__content'>
-         <description-list :data='plans'>
+         <description-list :data='plansData'>
             <template v-slot="{ val }">
-               <description-list-item label='ID' :value="val['id']" :width="50"/>
+               <description-list-item label='ID' :value="val['_id']" :width="220"/>
                <description-list-item label='Name' :value="val['name']" />
                <description-list-item label='Description' :value="val['description']" :width="240" />
                <description-list-item label='Type' :value="val['type']" />
