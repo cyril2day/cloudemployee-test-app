@@ -33,16 +33,16 @@ watchEffect(() => {
 <style lang="scss" scoped>
 @import './styles.scss';
 
-.list-item__wrapper {
-   width: v-bind(width);
-
-   * {
-      padding: 3px;
-   }
-}
-
 .list-item__label {
    font-family: 'Rubik-Light';
    font-weight: lighter;
 }
+
+/*
+@media screen and (min-width: $md) {
+   .list-item__wrapper {
+      width: v-bind(width);
+   }
+}
+*/
 </style>
