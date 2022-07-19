@@ -14,7 +14,7 @@ api.interceptors.request.use(
 api.interceptors.response.use(
    response => {
       if (response.data)
-         return response
+         return response.data
       else
          return Promise.reject(response)
    },
