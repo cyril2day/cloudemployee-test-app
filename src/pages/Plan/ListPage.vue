@@ -6,8 +6,9 @@ import { data } from '../../stores/sampleData'
 
 const { plans } = data
 
-onBeforeMount(() => {
-   usePlanStore().TestGetPlans(data.plans)
+onBeforeMount(async() => {
+   // usePlanStore().TestGetPlans(data.plans)
+   await usePlanStore().Fetch()
 })
 </script>
 
