@@ -53,7 +53,6 @@ onBeforeMount(async() => {
    height: 92vh;
    gap: 2px;
    background: var(--background-white);
-   overflow-x: auto;
 }
 
 .plan-list__header {
@@ -93,6 +92,7 @@ onBeforeMount(async() => {
 } 
 
 .plan-list__content {
+
    grid-column: span 13;
    margin: 10px 20px;
 }
