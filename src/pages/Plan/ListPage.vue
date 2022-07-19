@@ -25,7 +25,10 @@ onBeforeMount(async() => {
             <p>Active Plans</p>
          </div>
          <div class='plan-list__search-wrapper'>
-            <input />
+            <input
+               autofocus
+               class='plan-list__search-input'
+            />
          </div>
       </section>
 
@@ -34,11 +37,11 @@ onBeforeMount(async() => {
       <section class='plan-list__content'>
          <description-list :data='plansData'>
             <template v-slot="{ val }">
-               <description-list-item label='ID' :value="val['_id']" :width="220"/>
-               <description-list-item label='Name' :value="val['name']" />
-               <description-list-item label='Description' :value="val['description']" :width="240" />
-               <description-list-item label='Type' :value="val['type']" />
-               <description-list-item label='Status' :value="val['status']" />
+               <description-list-item label='ID' :value="val['_id']" :width="80" :trim="6" />
+               <description-list-item label='Name' :value="val['name']" :width="90" />
+               <description-list-item label='Description' :value="val['description']" :grow="0.8" />
+               <description-list-item label='Type' :value="val['type']" :width="90" />
+               <description-list-item label='Status' :value="val['status']" :width="90" />
             </template>
          </description-list>
       </section>
@@ -67,6 +70,7 @@ onBeforeMount(async() => {
    display: flex; 
    flex-direction: column;
    justify-content: space-evenly;
+   min-width: 100px;
 
    * {
       margin: 0;
@@ -80,10 +84,14 @@ onBeforeMount(async() => {
 
 .plan-list__search-wrapper {
    display: flex;
+   width: 350px;
 
    input {
       align-self: center;
       height: 30px;
+      width: 100%;
+      font-size: 0.8em;
+      text-align: right;
    }
 }
 
@@ -120,6 +128,10 @@ onBeforeMount(async() => {
       p {
          font-size: 1em;
       }
+   }
+
+   .plan-list__search-wrapper {
+      width: 250px;       
    }
 }
 </style>
