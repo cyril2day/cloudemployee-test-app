@@ -1,8 +1,9 @@
 /* BASE STYLES */
 body {
+   background: var(--background-white);
    font-family: 'Rubik-Regular';
    overflow-y: overlay;
-   background: var(--background-white);
+   overflow: hidden;
 }
 
 h1,h2,h3,h4 {
