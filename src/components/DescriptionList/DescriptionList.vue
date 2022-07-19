@@ -1,9 +1,10 @@
 <script setup lang='ts'>
 import { PropType } from 'vue';
+import { Plan } from '../../types/plan';
 
 const props = defineProps({
    data: {
-      type: Array as PropType<Object>,
+      type: Array as PropType<Plan[]>,
       default: []
    }
 })
