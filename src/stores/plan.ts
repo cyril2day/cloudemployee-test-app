@@ -5,10 +5,10 @@ import { Plan, PlanChild } from '../types/plan'
 import { flatten } from '../utils/helpers'
 
 
-type PlanOrPlanChild = Array<Plan | PlanChild>
+export type PlanOrPlanChild = Array<Plan | PlanChild>
 
 type State = {
-   flattenedData: PlanOrPlanChild[]
+   flattenedData: PlanOrPlanChild
    plans: Plan[]
    planChildren: PlanChild[]
 }
@@ -21,20 +21,6 @@ const usePlanStore = defineStore('plan', () => {
    })
 
    const actions = {
-      TestGetPlans: (plans: any[]) => {
-         if (!state.plans.length) {
-            plans.forEach(plan => {
-               state.plans.push({
-                  id: plan.id,
-                  name: plan.name,
-                  description: plan.description,
-                  status: plan.status,
-                  type: plan.type,
-                  children: plan.children
-               })
-            })
-         }
-      },
       Fetch: async() => {
          const { data } = await getPlans({ })
 
