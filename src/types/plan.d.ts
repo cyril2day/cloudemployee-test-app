@@ -1,5 +1,5 @@
 export type Plan = {
-   id: string
+   _id: string
    name: string
    description: string
    status: 'Active' | 'Inactive'
