@@ -59,5 +59,6 @@ const props = defineProps({
 
 .router-link-exact-active {
    background: var(--blue3);
+   color: var(--white)!important;
 }
 </style>
