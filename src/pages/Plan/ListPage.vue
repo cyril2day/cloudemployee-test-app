@@ -10,10 +10,9 @@ const plansData = computed(() => plans.value)
 
 onBeforeMount(async() => {
    await usePlanStore().Fetch()
-   .then(() => {
-      usePlanStore().GetPlans(flattenedData.value)
-      usePlanStore().GetPlanChildren(flattenedData.value)
-   })
+
+   usePlanStore().GetPlans(flattenedData.value)
+   usePlanStore().GetPlanChildren(flattenedData.value)
 })
 </script>
 
