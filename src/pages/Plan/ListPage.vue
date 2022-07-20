@@ -73,7 +73,7 @@ watchEffect(() => {
    display: grid;
    grid-template-columns: repeat(12, 1fr);
    grid-template-rows: repeat(10, 1fr);
-   height: 92vh;
+   height: 90vh;
    gap: 2px;
    background: var(--background-white);
 }
