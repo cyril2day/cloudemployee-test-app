@@ -6,10 +6,18 @@ const props = defineProps({
       default: false
    }
 })
+
+const show = ref(false)
+
+watchEffect(
+   () => {
+      show.value = props.menuState
+   }
+)
 </script>
 
 <template>
-   <section class='sidebar__main' :class="{ show: props.menuState }">
+   <section class='sidebar__main' :class="{ show: show }">
       <div class='sidebar__logo'>
          <img :src="ContinuityLogo">
          <h3>Donald Trump</h3>
@@ -31,7 +39,7 @@ const props = defineProps({
 
 <style lang='scss'>
 .show {
-   display: block;
+   display: block!important;
 }
 
 .sidebar__main {

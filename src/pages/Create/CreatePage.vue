@@ -17,6 +17,7 @@ const newPlan = ref<NewPlan>({
 
 function onFormSubmit(event: boolean) {
    console.log(newPlan.value)
+   router.push('/plan')
 }
 
 function handleOnNameChanged(name: string) {

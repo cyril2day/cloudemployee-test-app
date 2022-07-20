@@ -7,6 +7,15 @@ const menuDisplayState = ref(false)
 const handleShowMenuEvent = (event: boolean) => {
    menuDisplayState.value = event
 }
+
+const route = useRoute()
+
+watch(
+   () => route.name,
+   () => {
+      menuDisplayState.value = false
+   }
+)
 </script>
 
 <template>
