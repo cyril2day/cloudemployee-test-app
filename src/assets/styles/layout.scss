@@ -2,6 +2,7 @@
 .app__wrapper {
    display: grid;
    grid-template-columns: repeat(12, 1fr);
+   height: 100vh;
 }
 
 .header__main {
@@ -45,12 +46,6 @@
    grid-row: 3;
 }
 
-.page-footer {
-   grid-column: 1/13;
-   grid-row: 3/4;
-}
-
-
 /* MEDIA QUERIES */
 
 // xs screens
@@ -93,7 +88,6 @@
       background: var(--blue2);
       display: flex;
       flex-direction: column;
-      height: 100vh;
    }
 
    .sidebar__logo {
@@ -138,7 +132,7 @@
 
    .page-container {
       grid-column: 3/13;
-      grid-row: 2/12;
+      grid-row: 2/13;
       margin-top: -20px;
    }
 }

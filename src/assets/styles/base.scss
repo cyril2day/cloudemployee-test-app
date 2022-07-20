@@ -1,6 +1,5 @@
 /* BASE STYLES */
 body {
-   position: relative;
    background: var(--background-white);
    font-family: 'Rubik-Regular';
 
@@ -12,10 +11,7 @@ body {
 }
 
 #app {
-   position: absolute;
-   height: 100vh;
    width: 100vw;
-   box-sizing: content-box;
 }
 
 h1,h2,h3,h4 {
