@@ -2,17 +2,31 @@
 import { storeToRefs } from 'pinia';
 import DescriptionList from '../../components/DescriptionList/DescriptionList.vue';
 import DescriptionListItem from '../../components/DescriptionList/DescriptionListItem.vue';
+import LeftFilter from './LeftFilter.vue'
 import usePlanStore from '../../stores/plan';
+import { Plan } from '../../types/plan';
 
 
 const { plans, flattenedData } = storeToRefs(usePlanStore())
-const plansData = computed(() => plans.value)
+
+const filteredPlans = ref<Plan[]>([])
+const searchText = ref('')
+
+async function onSearch() {
+   filteredPlans.value = plans.value.filter(plan => plan.name.toLowerCase().includes(searchText.value.toLowerCase()))
+}
 
 onBeforeMount(async() => {
    await usePlanStore().Fetch()
 
    usePlanStore().GetPlans(flattenedData.value)
    usePlanStore().GetPlanChildren(flattenedData.value)
+})
+
+watchEffect(() => {
+   const { plans } = storeToRefs(usePlanStore())
+   
+   filteredPlans.value = plans.value
 })
 </script>
 
@@ -25,16 +39,20 @@ onBeforeMount(async() => {
          </div>
          <div class='plan-list__search-wrapper'>
             <input
+               v-model='searchText'
                autofocus
                class='plan-list__search-input'
+               @keyup="onSearch"
             />
          </div>
       </section>
 
-      <section class='plan-list__left-section'>LEFT FILTER</section>
+      <section class='plan-list__left-section'>
+         <left-filter />
+      </section>
 
-      <section class='plan-list__content'>
-         <description-list :data='plansData'>
+      <section v-if="filteredPlans.length" class='plan-list__content'>
+         <description-list :data='filteredPlans'>
             <template v-slot="{ val }">
                <description-list-item label='ID' :value="val['_id']" :width="80" :trim="6" />
                <description-list-item label='Name' :value="val['name']" :width="90" />
@@ -43,6 +61,9 @@ onBeforeMount(async() => {
                <description-list-item label='Status' :value="val['status']" :width="90" />
             </template>
          </description-list>
+      </section>
+      <section v-else class="plan-list__no-content">
+         <p class='plan-list__no-content-text'>No Data</p>
       </section>
    </div>
 </template>
