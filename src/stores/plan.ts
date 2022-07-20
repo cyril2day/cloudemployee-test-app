@@ -23,8 +23,12 @@ const usePlanStore = defineStore('plan', () => {
    const actions = {
       Fetch: async() => {
          const { data } = await getPlans({ })
-
-         state.flattenedData = flatten(data) as any[]
+         
+         if (Array.isArray(data) && data.length) {
+            state.flattenedData = flatten(data) as any[]
+         } else {
+            throw Error('invalid data')
+         }
       },
       GetPlans: (items: PlanOrPlanChild) => {
          const plans = items.filter((item): item is Plan => item.type === 'Plan')
