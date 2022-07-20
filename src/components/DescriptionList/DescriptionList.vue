@@ -1,5 +1,6 @@
 <script setup lang='ts'>
 import { PropType } from 'vue';
+import { deletePlan } from '../../api/plan';
 import { Plan } from '../../types/plan';
 
 const props = defineProps({
@@ -8,6 +9,16 @@ const props = defineProps({
       default: []
    }
 })
+
+async function removePlan(id: string) {
+   await deletePlan(id)
+   .then(res => {
+      console.log(res)
+   })
+   .catch(err => {
+      console.log(err)
+   })
+}
 </script>
 
 <template>
@@ -27,7 +38,9 @@ const props = defineProps({
             <i class="cib-discover"></i>
          </div>
       </div>
-      <div class='list__actions'></div>
+      <div class='list__actions'>
+         <button class='list__delete' @click='removePlan(item._id)'>Delete</button>
+      </div>
    </dl>
 </template>
 

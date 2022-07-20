@@ -32,7 +32,14 @@ exports[`Description List Component Snapshot Test > Elements and styles renders 
     <div
       class="list__actions"
       data-v-238432e0=""
-    />
+    >
+      <button
+        class="list__delete"
+        data-v-238432e0=""
+      >
+        Delete
+      </button>
+    </div>
   </dl>
   <dl
     class="list__wrapper"
@@ -61,7 +68,14 @@ exports[`Description List Component Snapshot Test > Elements and styles renders 
     <div
       class="list__actions"
       data-v-238432e0=""
-    />
+    >
+      <button
+        class="list__delete"
+        data-v-238432e0=""
+      >
+        Delete
+      </button>
+    </div>
   </dl>
   
 </div>
