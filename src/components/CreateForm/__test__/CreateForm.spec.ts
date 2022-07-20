@@ -43,8 +43,9 @@ describe('Create Form Page Unit Test', () => {
 
       await submit.trigger('click')
 
-      const emitted = wrapper.emitted('formSubmit')![0][0] as any
-      expect(emitted).toEqual({ name: '', type: 'Sub Business Function' })
+      const emitted = wrapper.emitted('formSubmit')
+
+      expect(emitted).toEqual([[{ name: '', type: 'Sub Business Function' }]])
    })
 
    test('slot renders correctly', () => {
