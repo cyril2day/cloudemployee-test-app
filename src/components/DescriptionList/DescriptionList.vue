@@ -3,6 +3,7 @@ import { PropType } from 'vue';
 import { deletePlan } from '../../api/plan';
 import { Plan } from '../../types/plan';
 
+const emit = defineEmits(['itemDelete'])
 const props = defineProps({
    data: {
       type: Array as PropType<Plan[]>,
@@ -10,14 +11,27 @@ const props = defineProps({
    }
 })
 
+
+async function editPlan(id: string) {
+   console.log(id)
+}
+
 async function removePlan(id: string) {
+   /*
    await deletePlan(id)
    .then(res => {
+      emit('itemDelete', true)
       console.log(res)
    })
    .catch(err => {
       console.log(err)
    })
+   */
+}
+
+function colorInactive(item: any) {
+   if (item.status === 'Inactive')
+      return 'var(--error)'
 }
 </script>
 
@@ -35,11 +49,12 @@ async function removePlan(id: string) {
 
       <div class='list__status-indicator'>
          <div>
-            <i class="cib-discover"></i>
+            <i class="cib-discover" :style="{ color: colorInactive(item) }"></i>
          </div>
       </div>
       <div class='list__actions'>
-         <button class='list__delete' @click='removePlan(item._id)'>Delete</button>
+         <button class='list__edit' @click='editPlan(item._id)'><i class="cil-pencil"></i></button>
+         <button class='list__delete' @click='removePlan(item._id)'><i class="cil-trash"></i></button>
       </div>
    </dl>
 </template>

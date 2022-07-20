@@ -28,3 +28,15 @@ export function flatten(items: ParamObject[]) {
 
    return temp.flat()
 }
+
+function addLeadingZero(num: number) {
+   return num < 9 ? `0${num}` : num
+}
+
+export function getFormattedDate(date: Date) {
+   const year = date.getFullYear(),
+      month = date.getMonth() + 1,
+      day = date.getDate()
+
+   return `${year}-${ addLeadingZero(month) }-${ addLeadingZero(day) }`
+}

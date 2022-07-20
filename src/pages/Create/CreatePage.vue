@@ -2,6 +2,7 @@
 import { createPlan } from '../../api/plan';
 import CreateForm from '../../components/CreateForm/CreateForm.vue'
 import { Plan } from '../../types/plan';
+import { getFormattedDate } from '../../utils/helpers';
 
 
 type NewPlan = Omit<Plan, '_id'> & { reviewDate?: any }
@@ -9,11 +10,13 @@ type NewPlan = Omit<Plan, '_id'> & { reviewDate?: any }
 const breakpoints = useBreakpoints({ laptop: 1024 })
 const router = useRouter()
 
+const today = ref(new Date())
 const newPlan = ref<NewPlan>({
    name: '',
    description: '',
    type: 'Plan',
-   status: 'Active'
+   status: 'Active',
+   reviewDate: getFormattedDate(today.value)
 })
 
 async function onFormSubmit(event: boolean) {
@@ -37,6 +40,9 @@ onMounted(() => {
    if (breakpoints.greater('laptop').value) {
       router.push('PlanList')
    }
+
+   console.log(getFormattedDate(today.value))
+   console.log(today.value)
 })
 </script>
 

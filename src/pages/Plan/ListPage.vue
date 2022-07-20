@@ -16,11 +16,23 @@ async function onSearch() {
    filteredPlans.value = plans.value.filter(plan => plan.name.toLowerCase().includes(searchText.value.toLowerCase()))
 }
 
-onBeforeMount(async() => {
+async function onItemDelete(event: boolean) {
+   if (event) {
+      await Fetch()
+
+      filteredPlans.value = plans.value
+   }
+}
+
+async function Fetch() {
    await usePlanStore().Fetch()
 
    usePlanStore().GetPlans(flattenedData.value)
    usePlanStore().GetPlanChildren(flattenedData.value)
+}
+
+onBeforeMount(async() => {
+   await Fetch()
 })
 
 watchEffect(() => {
@@ -52,7 +64,7 @@ watchEffect(() => {
       </section>
 
       <section v-if="filteredPlans.length" class='plan-list__content'>
-         <description-list :data='filteredPlans'>
+         <description-list :data='filteredPlans' @item-delete='onItemDelete'>
             <template v-slot="{ val }">
                <description-list-item label='ID' :value="val['_id']" :width="80" :trim="6" />
                <description-list-item label='Name' :value="val['name']" :width="90" />

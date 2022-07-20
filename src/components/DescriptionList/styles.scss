@@ -30,6 +30,19 @@
 
 .list__actions {
    grid-column: 5/9; 
+   display: flex;
+   justify-content: flex-end;
+   padding-right: 10px;
+}
+
+.list__delete,
+.list__edit {
+   border: none;
+   font-size: 20px;
+
+   :hover {
+      cursor: pointer;
+   }
 }
 
 .list-item__wrapper {
@@ -58,6 +71,7 @@
 
    .list__actions {
       grid-column: 15/17;
+      justify-content: space-evenly;
    }
 
    .list-item__wrapper {
