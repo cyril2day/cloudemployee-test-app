@@ -17,7 +17,6 @@ async function editPlan(id: string) {
 }
 
 async function removePlan(id: string) {
-   /*
    await deletePlan(id)
    .then(res => {
       emit('itemDelete', true)
@@ -26,7 +25,6 @@ async function removePlan(id: string) {
    .catch(err => {
       console.log(err)
    })
-   */
 }
 
 function colorInactive(item: any) {
