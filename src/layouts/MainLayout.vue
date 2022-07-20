@@ -19,5 +19,7 @@ const handleShowMenuEvent = (event: boolean) => {
 
       <!-- page container --> 
       <section class='page-container'><router-view /></section>
+
+      <section class="page-footer"></section>
    </div>
 </template>

@@ -50,6 +50,7 @@
 
 // xs screens
 @media screen and (min-width: $xs) {
+   /*  */
 }
 
 // xs to med screens
@@ -132,7 +133,12 @@
 
    .page-container {
       grid-column: 3/13;
-      grid-row: 2/13;
+      grid-row: 2/12;
       margin-top: -20px;
+   }
+
+   .page-footer {
+      grid-column: 3/13;
+      grid-row: 12/13;
    }
 }
