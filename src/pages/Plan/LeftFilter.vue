@@ -16,8 +16,7 @@ const planStates = ref({
 })
 
 
-watch(
-   () => plans.value.length,
+watchEffect(
    () => {
       planStates.value.active = plans.value.filter(plan => plan.status === 'Active').length
    }
