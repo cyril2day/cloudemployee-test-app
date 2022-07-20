@@ -1,5 +1,5 @@
 .list__wrapper {
-   border: 1px solid var(--dark);
+   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
    display: grid;
    grid-template-columns: repeat(8, 1fr);

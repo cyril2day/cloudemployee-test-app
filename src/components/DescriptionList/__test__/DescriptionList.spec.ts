@@ -59,6 +59,7 @@ describe('Description List Component Unit Test', () => {
    })
 })
 
+
 describe('Description List Component Snapshot Test', () => {
    test('Elements and styles renders correctly', () => {
       expect.assertions(1)

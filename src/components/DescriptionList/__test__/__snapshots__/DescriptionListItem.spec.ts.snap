@@ -1,0 +1,17 @@
+// Vitest Snapshot v1
+
+exports[`Description List Item Component Snapshot Test > Elements and styles renders correctly 1`] = `
+<div
+  class="list-item__wrapper"
+  data-v-f263b4d4=""
+>
+  <dt
+    class="list-item__label"
+    data-v-f263b4d4=""
+  />
+  <dd
+    class="list-item__value"
+    data-v-f263b4d4=""
+  />
+</div>
+`;
