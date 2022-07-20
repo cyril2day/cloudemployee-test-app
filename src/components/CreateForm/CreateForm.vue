@@ -7,7 +7,7 @@ function submit() {
    emit('formSubmit', true)
 }
 
-function handleNameInputKeyup() {
+function handleNameChanged() {
    emit('onNameChanged', data.value)
 }
 </script>
@@ -25,7 +25,8 @@ function handleNameInputKeyup() {
             type='text'
             name='name'
             id='name'
-            @keyup='handleNameInputKeyup'
+            @keyup='handleNameChanged'
+            @blur='handleNameChanged'
          />
       </div>
       <slot></slot>
