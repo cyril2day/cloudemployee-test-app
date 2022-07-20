@@ -9,9 +9,20 @@ const routes = [
    },
    {
       path: '/plan',
-      name: 'Plan',
+      name: 'PlanList',
       component: () => import('src/pages/Plan/ListPage.vue')
-   }
+   },
+   {
+      path: '/create',
+      name: 'Create',
+      component: () => import('src/pages/Create/CreatePage.vue')
+   },
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/',
+    name: 'NotFound',
+    meta: { hidden: true },
+  },
 ]
 
 const router = createRouter({
