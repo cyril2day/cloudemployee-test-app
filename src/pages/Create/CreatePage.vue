@@ -1,4 +1,5 @@
 <script setup lang='ts'>
+import { createPlan } from '../../api/plan';
 import CreateForm from '../../components/CreateForm/CreateForm.vue'
 import { Plan } from '../../types/plan';
 
@@ -15,9 +16,17 @@ const newPlan = ref<NewPlan>({
    status: 'Active'
 })
 
-function onFormSubmit(event: boolean) {
+async function onFormSubmit(event: boolean) {
    console.log(newPlan.value)
-   router.push('/plan')
+
+   await createPlan(newPlan.value)
+   .then(res => {
+      console.log('created')
+      console.log(res)
+   })
+   .catch(err => {
+      console.log(err)
+   })
 }
 
 function handleOnNameChanged(name: string) {
