@@ -9,6 +9,8 @@ body {
 #app {
    overflow: scroll;
    overflow-y: overlay;
+   z-index: 2;
+   height: 100vh;
 }
 
 h1,h2,h3,h4 {
