@@ -7,3 +7,16 @@ export const getPlans = (params?: any) =>
       method: 'get',
       params
    })
+
+export const createPlan = (params: any) =>
+   request({
+      url: '/plans',
+      method: 'post',
+      data: params
+   })
+
+export const deletePlan = (id: string) =>
+   request({
+      url: `/plan/${id}`,
+      method: 'delete'
+   })
