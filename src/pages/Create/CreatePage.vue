@@ -35,7 +35,7 @@ onMounted(() => {
       <create-form @formSubmit='onFormSubmit' @on-name-changed='handleOnNameChanged'>
          <!-- Form Header -->
          <template #form-header>
-            <div class='form-header'><h3>Create Plan</h3></div>
+            <h3>Create Plan</h3>
          </template>
 
          <!-- Form Contents -->

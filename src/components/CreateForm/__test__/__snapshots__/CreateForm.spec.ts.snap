@@ -1,0 +1,47 @@
+// Vitest Snapshot v1
+
+exports[`Create Form Component Snapshot Test > Elements and styles renders correctly 1`] = `
+<div
+  class="form__wrapper"
+>
+  <!-- Form Header -->
+  <div
+    class="form-header"
+  >
+    
+    <h3>
+      Create Sub Business Function
+    </h3>
+    
+  </div>
+  <!-- Form Contents -->
+  <div
+    class="form-item"
+  >
+    <label
+      for="name"
+    >
+      Name
+    </label>
+    <input
+      id="name"
+      name="name"
+      type="text"
+    />
+  </div>
+  
+  
+  <!-- Form Actions -->
+  
+  <div
+    class="form-item"
+  >
+    <button
+      id="formSubmit"
+    >
+      SUBMIT
+    </button>
+  </div>
+  
+</div>
+`;
