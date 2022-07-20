@@ -10,6 +10,18 @@ const emit = defineEmits(['showMenu'])
 const showMenu = () => {
    emit('showMenu', !props.menuDisplayState)
 }
+
+const route = useRoute()
+const router = useRouter()
+const breakpoints = useBreakpoints({ laptop: 1024 })
+
+
+function createNewPlan() {
+   if (breakpoints.smaller('laptop').value)
+      router.push({ name: 'Create' })
+   else
+      console.log('desktop')
+}
 </script>
 
 <template>
@@ -18,7 +30,11 @@ const showMenu = () => {
          <h4 class='header__nav-brand'>Corrective Action</h4>
 
          <div class='header__nav-actions'>
-            <button class="header__create-plan">New Plan</button>
+            <button
+               v-if="route.name === 'PlanList'"
+               class="header__create-plan"
+               @click='createNewPlan'
+            >New Plan</button>
             <button class='header__menu-toggler' @click='showMenu'>
                <i v-if='!props.menuDisplayState' class='cil-hamburger-menu'></i>
                <i v-else class='cil-x'></i>
