@@ -7,8 +7,8 @@ body {
 }
 
 #app {
-   overflow-y: scroll;
-   overflow: hidden;
+   overflow: scroll;
+   overflow-y: overlay;
 }
 
 h1,h2,h3,h4 {
