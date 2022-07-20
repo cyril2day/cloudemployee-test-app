@@ -1,6 +1,6 @@
 <script setup lang='ts'>
-import { storeToRefs } from 'pinia';
-import usePlanStore from '../../stores/plan';
+import { PropType } from 'vue';
+import { Plan } from '../../types/plan';
 
 
 enum CounterBorderColor {
@@ -8,7 +8,13 @@ enum CounterBorderColor {
    'Inactive' = '#1e88e5'
 }
 
-const { plans } = storeToRefs(usePlanStore())
+const props = defineProps({
+   plans: {
+      type: Object as PropType<Plan[]>,
+      required: true,
+      default: []
+   }
+})
 
 const planStates = ref({
    active: 0,
@@ -18,7 +24,7 @@ const planStates = ref({
 
 watchEffect(
    () => {
-      planStates.value.active = plans.value.filter(plan => plan.status === 'Active').length
+      planStates.value.active = props.plans.filter(plan => plan.status === 'Active').length
    }
 )
 </script>

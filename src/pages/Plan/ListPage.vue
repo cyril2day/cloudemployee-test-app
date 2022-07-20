@@ -48,7 +48,7 @@ watchEffect(() => {
       </section>
 
       <section class='plan-list__left-section'>
-         <left-filter />
+         <left-filter :plans="plans" />
       </section>
 
       <section v-if="filteredPlans.length" class='plan-list__content'>
