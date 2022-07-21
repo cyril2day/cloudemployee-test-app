@@ -64,15 +64,16 @@ function onCreateSuccess(event: any) {
    showCreatePopup.value = false
 }
 
-onBeforeMount(async() => {
-   await Fetch()
-})
+onBeforeMount(async() => { await Fetch() })
 
-watchEffect(() => {
-   const { plans } = storeToRefs(usePlanStore())
-   
-   filteredPlans.value = plans.value.filter(plan => plan.status === filterType.value)
-})
+
+watch(
+   usePlanStore().$state,
+   () => {
+      if (plans.value.length)
+         filteredPlans.value = plans.value.filter(plan => plan.status === filterType.value)
+   }
+)
 
 watch(
    () => filterType.value,
@@ -104,7 +105,7 @@ watch(
       </section>
 
       <section class='plan-list__left-section'>
-         <left-filter :plans="plans" @filter-type='handleFilterType' />
+         <left-filter :plans='plans' @filter-type='handleFilterType' />
       </section>
 
       <section v-if="filteredPlans.length" class='plan-list__content'>

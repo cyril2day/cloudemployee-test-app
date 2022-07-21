@@ -1,12 +1,15 @@
 <script setup lang='ts'>
+import { storeToRefs } from 'pinia';
 import { createPlan } from '../../api/plan';
 import CreateForm from '../../components/CreateForm/CreateForm.vue'
+import usePlanStore from '../../stores/plan';
 import { Plan } from '../../types/plan';
 import { NewPlan, newPlanDefaultValue } from './create'
 
 
 const breakpoints = useBreakpoints({ laptop: 1024 })
 const router = useRouter()
+const { plans } = storeToRefs(usePlanStore())
 
 const newPlan = ref<NewPlan>({ ...newPlanDefaultValue })
 
@@ -15,11 +18,15 @@ async function onFormSubmit(event: Pick<Plan, 'name' | 'type'>) {
 
    await createPlan(newPlan.value)
    .then(res => {
-      console.log(res)
+      plans.value = res.data
+
+      newPlan.value = { ...newPlanDefaultValue }
    })
    .catch(err => {
       console.error(err)
    })
+
+   router.push({ name: 'PlanList' })
 }
 
 function handleOnNameChanged(name: string) {
@@ -35,7 +42,7 @@ onMounted(() => {
 
 <template>
    <div class='create-form__wrapper'>
-      <create-form @formSubmit='onFormSubmit' @on-name-changed='handleOnNameChanged'>
+      <create-form form-type='Plan' @formSubmit='onFormSubmit' @on-name-changed='handleOnNameChanged'>
          <!-- Form Header -->
          <template #form-header>
             <h3>Create Plan</h3>

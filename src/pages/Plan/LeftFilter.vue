@@ -5,11 +5,6 @@ import { Plan } from '../../types/plan';
 
 const emit = defineEmits(['filterType'])
 
-enum CounterBorderColor {
-   'Active' = '#4caf50',
-   'Inactive' = '#1e88e5'
-}
-
 enum PlanStatus {
    'Active' = 'Active',
    'Inactive' = 'Inactive'
@@ -40,7 +35,8 @@ function handleSelectedFilterType(type: string) {
 
 watchEffect(
    () => {
-      planStates.value.active = props.plans.filter(plan => plan.status === 'Active').length
+      if (props.plans.length)
+         planStates.value.active = props.plans.filter(plan => plan.status === 'Active').length
    }
 )
 </script>
