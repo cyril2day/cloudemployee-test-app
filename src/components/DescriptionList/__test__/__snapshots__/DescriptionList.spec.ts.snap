@@ -36,24 +36,44 @@ exports[`Description List Component Snapshot Test > Elements and styles renders 
       class="list__actions"
       data-v-238432e0=""
     >
-      <button
-        class="list__edit"
+      <div
+        class="list__actions--rest"
         data-v-238432e0=""
       >
-        <i
-          class="cil-pencil"
+        <button
+          class="list__add-child"
           data-v-238432e0=""
-        />
-      </button>
-      <button
-        class="list__delete"
+        >
+          <i
+            class="cil-plus"
+            data-v-238432e0=""
+          />
+        </button>
+        <button
+          class="list__edit"
+          data-v-238432e0=""
+        >
+          <i
+            class="cil-pencil"
+            data-v-238432e0=""
+          />
+        </button>
+        <button
+          class="list__delete"
+          data-v-238432e0=""
+        >
+          <i
+            class="cil-trash"
+            data-v-238432e0=""
+          />
+        </button>
+      </div>
+      <div
+        class="list__actions--navigate"
         data-v-238432e0=""
       >
-        <i
-          class="cil-trash"
-          data-v-238432e0=""
-        />
-      </button>
+        <!--v-if-->
+      </div>
     </div>
   </dl>
   <dl
@@ -87,24 +107,44 @@ exports[`Description List Component Snapshot Test > Elements and styles renders 
       class="list__actions"
       data-v-238432e0=""
     >
-      <button
-        class="list__edit"
+      <div
+        class="list__actions--rest"
         data-v-238432e0=""
       >
-        <i
-          class="cil-pencil"
+        <button
+          class="list__add-child"
           data-v-238432e0=""
-        />
-      </button>
-      <button
-        class="list__delete"
+        >
+          <i
+            class="cil-plus"
+            data-v-238432e0=""
+          />
+        </button>
+        <button
+          class="list__edit"
+          data-v-238432e0=""
+        >
+          <i
+            class="cil-pencil"
+            data-v-238432e0=""
+          />
+        </button>
+        <button
+          class="list__delete"
+          data-v-238432e0=""
+        >
+          <i
+            class="cil-trash"
+            data-v-238432e0=""
+          />
+        </button>
+      </div>
+      <div
+        class="list__actions--navigate"
         data-v-238432e0=""
       >
-        <i
-          class="cil-trash"
-          data-v-238432e0=""
-        />
-      </button>
+        <!--v-if-->
+      </div>
     </div>
   </dl>
   

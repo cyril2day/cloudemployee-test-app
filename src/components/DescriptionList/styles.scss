@@ -33,8 +33,10 @@
    padding-right: 10px;
 }
 
+.list__add-child,
 .list__delete,
-.list__edit {
+.list__edit,
+.list__forward {
    border: none;
    font-size: 20px;
 
@@ -71,7 +73,12 @@
 
    .list__actions {
       grid-column: 15/17;
-      justify-content: space-evenly;
+      justify-content: space-between;
+   }
+
+   .list__actions--rest,
+   .list__actions--navigate {
+      display: flex;
    }
 
    .list-item__wrapper {
