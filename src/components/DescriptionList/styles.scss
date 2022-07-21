@@ -45,6 +45,7 @@
    justify-content: space-between; 
    padding: 10px;
    margin: 10px;
+   font-size: 0.9em;
 }
 
 @media screen and (min-width: calc($xs + 180px)) {
@@ -82,7 +83,6 @@
       display: inline-block;
       margin: 0;
       padding: 10px;
-
    }
 
    .list-item__value {
@@ -93,7 +93,8 @@
 
 @media screen and (min-width: $sm) and (max-width: 1155px) {
    .list__items {
-      grid-column: 1/17;
+      display: flex;
+      /* grid-column: 1/17; */
       flex-direction: column;
    }
 
@@ -101,11 +102,13 @@
       display: flex;
       justify-content: space-between;
       margin: 0 10px;
+      width: 100%!important;
    }
 
    .list__status-indicator {
       grid-column: 1/8;
       padding: 10px;
+      justify-content: flex-start!important;
 
       div {
          margin-left: 10px;
@@ -114,5 +117,6 @@
 
    .list__actions {
       grid-column: 8/17;
+      justify-content: flex-end!important;
    }
 }
