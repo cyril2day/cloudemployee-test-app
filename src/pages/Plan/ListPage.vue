@@ -99,6 +99,7 @@ watch(
                class='plan-list__search-input'
                placeholder='Search Plan Name'
                @keyup="onSearch"
+               @input='onSearch'
                @touchend='onSearch'
             />
          </div>
