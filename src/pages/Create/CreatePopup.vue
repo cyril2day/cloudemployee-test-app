@@ -3,10 +3,8 @@ import { createPlan } from '../../api/plan';
 import CreateForm from '../../components/CreateForm/CreateForm.vue';
 import useAppStore from '../../stores/app';
 import { Plan } from '../../types/plan';
-import { getFormattedDate } from '../../utils/helpers';
+import { NewPlan, newPlanDefaultValue } from './create'
 
-
-type NewPlan = Omit<Plan, '_id'> & { reviewDate?: any }
 
 const emit = defineEmits(['createSuccess'])
 const props = defineProps({
@@ -17,15 +15,7 @@ const props = defineProps({
 })
 
 const shown = ref(false)
-
-const today = ref(new Date())
-const data = ref<NewPlan>({
-   name: '',
-   description: '',
-   type: 'Plan',
-   status: 'Active',
-   reviewDate: getFormattedDate(today.value)
-})
+const data = ref<NewPlan>({ ...newPlanDefaultValue })
 
 
 function handleClose() {
@@ -33,13 +23,11 @@ function handleClose() {
    useAppStore().showCreatePopup = false
 }
 
-watch(
-   () => props.show,
-   () => {
-      shown.value = props.show
-   }
-)
+function handleOnNameChanged(name: string) {
+   data.value.name = name
+}
 
+onKeyStroke('Escape', () => { handleClose() })
 
 async function onFormSubmit(event: Pick<Plan, 'name' | 'type'>) {
    data.value = { ...data.value, name: event.name, type: event.type }
@@ -54,13 +42,10 @@ async function onFormSubmit(event: Pick<Plan, 'name' | 'type'>) {
    })
 }
 
-function handleOnNameChanged(name: string) {
-   data.value.name = name
-}
-
-onKeyStroke('Escape', () => {
-   handleClose()
-})
+watch(
+   () => props.show,
+   () => { shown.value = props.show }
+)
 </script>
 
 <template>

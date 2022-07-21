@@ -2,22 +2,13 @@
 import { createPlan } from '../../api/plan';
 import CreateForm from '../../components/CreateForm/CreateForm.vue'
 import { Plan } from '../../types/plan';
-import { getFormattedDate } from '../../utils/helpers';
+import { NewPlan, newPlanDefaultValue } from './create'
 
-
-type NewPlan = Omit<Plan, '_id'> & { reviewDate?: any }
 
 const breakpoints = useBreakpoints({ laptop: 1024 })
 const router = useRouter()
 
-const today = ref(new Date())
-const newPlan = ref<NewPlan>({
-   name: '',
-   description: '',
-   type: 'Plan',
-   status: 'Active',
-   reviewDate: getFormattedDate(today.value)
-})
+const newPlan = ref<NewPlan>({ ...newPlanDefaultValue })
 
 async function onFormSubmit(event: Pick<Plan, 'name' | 'type'>) {
    newPlan.value = { ...newPlan.value, name: event.name, type: event.type }
