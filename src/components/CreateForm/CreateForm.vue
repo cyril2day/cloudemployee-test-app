@@ -46,7 +46,7 @@ function handleNameChanged() {
       <!-- Form Actions -->
       <slot name='form-actions'>
          <div class='form-item'>
-            <button @click='submit' id='formSubmit' disabled>SUBMIT</button>
+            <button @click='submit' id='formSubmit'>SUBMIT</button>
          </div>
       </slot>
    </div>
@@ -55,12 +55,11 @@ function handleNameChanged() {
 <style lang="scss">
 .form__wrapper {
    max-height: 500px;
-   margin: 100px 50px;
+   margin: 30px 40px;
 }
 
 .form-item {
-   width: 100%;
-   margin: 20px auto;
+   margin-top: 20px;
 
    input, select, button {
       width: 100%;
@@ -69,12 +68,11 @@ function handleNameChanged() {
 
    button {
       margin: 20px auto;
-      background: var(--submit);
-      border: none;
       border-radius: 5px;
-      color: var(--white);
+      color: var(--dark);
       font-family: 'Rubik-Medium';
       font-size: 1.2em;
+      transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
    }
 }
 

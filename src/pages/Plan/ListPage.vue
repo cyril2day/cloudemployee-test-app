@@ -51,6 +51,8 @@ function handleFilterType(type: string) {
 }
 
 function onCreateSuccess(event: any) {
+   if (event.errors) return
+
    const { children, ...restOfProps } = event
 
    if (event.type === 'Plan') {

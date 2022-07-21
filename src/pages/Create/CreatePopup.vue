@@ -33,9 +33,9 @@ async function onFormSubmit(event: Pick<Plan, 'name' | 'type'>) {
    data.value = { ...data.value, name: event.name, type: event.type }
 
    await createPlan(data.value)
-   .then(res => {
-      console.log(res)
+   .then((res: any) => {
       emit('createSuccess', res.data)
+      data.value = { ...newPlanDefaultValue }
    })
    .catch(err => {
       console.error(err)
@@ -95,24 +95,21 @@ watch(
 
 <style lang="scss" scoped>
 .create__popup {
-   position: absolute;
-   z-index: 999;
    background: rgba(black, 0.5);
+   position: absolute;
    height: 100%;
    width: 100%;
    top: 0;
    left: 0;
+   z-index: 999;
 } 
 
 .create__form {
-   z-index: 999;
-   width: 60vw;
-   height: 50vh;
-   margin: 50px auto;
    background: var(--white);
+   width: 60vw;
+   margin: 90px auto;
    padding: 24px;
    border-radius: 10px;
-   margin-top: 10px;
 }
 
 .create__popup--close {
@@ -134,7 +131,6 @@ watch(
       height: 50px;
       padding: 0;
       margin: 8px;
-      
 
       &:hover {
          background: #d1d4daef;
