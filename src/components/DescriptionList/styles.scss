@@ -19,11 +19,6 @@
    justify-content: flex-start;
    margin-left: 20px;
    align-items: center;
-
-
-   i {
-      color: var(--green4);
-   }
 }
 
 .list__actions {
@@ -74,6 +69,8 @@
    .list__actions {
       grid-column: 15/17;
       justify-content: space-between;
+      flex-wrap: wrap;
+      min-width: 135px;
    }
 
    .list__actions--rest,
