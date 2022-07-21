@@ -10,5 +10,6 @@ export type Plan = {
 export type PlanChild = Pick<Plan, 'id' | 'name'> & 
    {
       parentId: string
+      parent?: string
       type: 'Sub Business Function' | 'Activity'
    }
