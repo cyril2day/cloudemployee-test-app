@@ -15,6 +15,8 @@ const filteredPlans = ref<Plan[]>([]),
 const searchText = ref(''),
    isFetchingData = ref(false)
 
+const searchInputEl = ref<HTMLInputElement | null>(null)
+
 async function onSearch() {
    filteredPlans.value = 
       plans.value.filter(plan => {
@@ -57,6 +59,15 @@ watchEffect(() => {
    
    filteredPlans.value = plans.value.filter(plan => plan.status === filterType.value)
 })
+
+watch(
+   () => filterType.value,
+   () => {
+      searchText.value = ''
+      if (searchInputEl.value)
+         searchInputEl.value.focus()
+   }
+)
 </script>
 
 <template>
@@ -69,6 +80,7 @@ watchEffect(() => {
          <div class='plan-list__search-wrapper'>
             <input
                v-model='searchText'
+               ref='searchInputEl'
                autofocus
                class='plan-list__search-input'
                placeholder='Search Plan Name'
