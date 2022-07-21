@@ -83,7 +83,6 @@ function getNumOfChild(item: Plan) {
 }
 
 .list__status-child-count {
-   position: absolute;
    color: var(--background-white);
    font-size: 0.6em;
    font-weight: 600;

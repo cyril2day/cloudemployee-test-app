@@ -46,7 +46,7 @@ function handleNameChanged() {
       <!-- Form Actions -->
       <slot name='form-actions'>
          <div class='form-item'>
-            <button @click='submit' id='formSubmit'>SUBMIT</button>
+            <button @click='submit' id='formSubmit' disabled>SUBMIT</button>
          </div>
       </slot>
    </div>

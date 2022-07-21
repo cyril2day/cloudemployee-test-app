@@ -213,6 +213,15 @@ watch(
       grid-column: 3/13;
       grid-row: 2/10;
       margin-right: 40px;
+      padding: 20px;
+      overflow-y: scroll;
+      max-height: 90vh;
+   }
+
+   .plan-list__no-content {
+      display: flex;
+      width: 100%;
+      margin: 20px auto;
    }
 
    .plan-list__header {

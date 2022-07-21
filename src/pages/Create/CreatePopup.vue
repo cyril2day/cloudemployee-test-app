@@ -106,8 +106,8 @@ watch(
 
 .create__form {
    z-index: 999;
-   width: 70vw;
-   height: 60vh;
+   width: 60vw;
+   height: 50vh;
    margin: 50px auto;
    background: var(--white);
    padding: 24px;

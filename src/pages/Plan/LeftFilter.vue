@@ -122,7 +122,7 @@ watchEffect(
          justify-content: center;
          width: 120px;
          height: 150px;
-         box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+         box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
          margin-bottom: 18px;
       }
 
