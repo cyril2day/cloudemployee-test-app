@@ -1,14 +1,8 @@
 <script setup lang='ts'>
 
-/*
-enum ChildType {
-   'Activity' = 'Activity',
-   'SBF' = 'Sub Business Function'
-}
-*/
 
 const props = defineProps({
-   childType: {
+   formType: {
       type: String,
       default: 'Sub Business Function'
    }
@@ -18,7 +12,7 @@ const emit = defineEmits(['formSubmit', 'onNameChanged'])
 const data = ref('')
 
 function submit() {
-   emit('formSubmit', { name: data.value, type: props.childType })
+   emit('formSubmit', { name: data.value, type: props.formType })
 }
 
 function handleNameChanged() {
@@ -31,7 +25,7 @@ function handleNameChanged() {
       <!-- Form Header -->
       <div class='form-header'>
          <slot name='form-header'>
-            <h3>Create {{ props.childType }}</h3>
+            <h3>Create {{ props.formType }}</h3>
          </slot>
       </div>
 

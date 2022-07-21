@@ -2,12 +2,15 @@
 import { storeToRefs } from 'pinia';
 import DescriptionList from '../../components/DescriptionList/DescriptionList.vue';
 import DescriptionListItem from '../../components/DescriptionList/DescriptionListItem.vue';
+import CreatePopup from '../Create/CreatePopup.vue'
 import LeftFilter from './LeftFilter.vue'
 import usePlanStore from '../../stores/plan';
 import { Plan } from '../../types/plan';
+import useAppStore from '../../stores/app';
 
 
-const { plans, flattenedData } = storeToRefs(usePlanStore())
+const { plans, flattenedData, planChildren } = storeToRefs(usePlanStore())
+const { showCreatePopup } = storeToRefs(useAppStore())
 
 const filteredPlans = ref<Plan[]>([]),
    filterType = ref('Active')
@@ -48,6 +51,18 @@ async function Fetch() {
 
 function handleFilterType(type: string) {
    filterType.value = type
+}
+
+function onCreateSuccess(event: any) {
+   const { children, ...restOfProps } = event
+
+   if (event.type === 'Plan') {
+      plans.value.push(restOfProps) 
+   } else {
+      planChildren.value.push(restOfProps)
+   }
+
+   showCreatePopup.value = false
 }
 
 onBeforeMount(async() => {
@@ -108,6 +123,8 @@ watch(
          <p class='plan-list__no-content-text'>No Data</p>
       </section>
    </div>
+
+   <create-popup :show="showCreatePopup" @create-success='onCreateSuccess' />
 </template>
 
 <style lang="scss" scoped>

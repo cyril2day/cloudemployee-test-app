@@ -1,4 +1,6 @@
 <script setup lang='ts'>
+import useAppStore from '../stores/app';
+
 const props = defineProps({
    menuDisplayState: {
       type: Boolean,
@@ -20,7 +22,7 @@ function createNewPlan() {
    if (breakpoints.smaller('laptop').value)
       router.push({ name: 'Create' })
    else
-      console.log('desktop')
+      useAppStore().showCreatePopup = true
 }
 </script>
 

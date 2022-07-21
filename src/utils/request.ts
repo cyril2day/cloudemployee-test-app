@@ -5,8 +5,6 @@ const api = axios.create({ baseURL: 'https://cloudemployee-backend-test-app.verc
 
 api.interceptors.request.use(
    config => {
-      console.log(config)
-
       return config
    }
 )

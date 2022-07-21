@@ -19,16 +19,15 @@ const newPlan = ref<NewPlan>({
    reviewDate: getFormattedDate(today.value)
 })
 
-async function onFormSubmit(event: boolean) {
-   console.log(newPlan.value)
+async function onFormSubmit(event: Pick<Plan, 'name' | 'type'>) {
+   newPlan.value = { ...newPlan.value, name: event.name, type: event.type }
 
    await createPlan(newPlan.value)
    .then(res => {
-      console.log('created')
       console.log(res)
    })
    .catch(err => {
-      console.log(err)
+      console.error(err)
    })
 }
 
@@ -40,9 +39,6 @@ onMounted(() => {
    if (breakpoints.greater('laptop').value) {
       router.push('PlanList')
    }
-
-   console.log(getFormattedDate(today.value))
-   console.log(today.value)
 })
 </script>
 

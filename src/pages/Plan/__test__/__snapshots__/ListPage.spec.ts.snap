@@ -2,102 +2,108 @@
 
 exports[`List Page Component Snapshot Test > Elements and styles renders correctly 1`] = `
 <div
-  class="plan-list__wrapper"
-  data-v-f3f1873f=""
+  data-v-app=""
 >
-  <section
-    class="plan-list__header"
+  
+  <div
+    class="plan-list__wrapper"
     data-v-f3f1873f=""
   >
-    <div
-      class="plan-list__header-label"
+    <section
+      class="plan-list__header"
       data-v-f3f1873f=""
     >
-      <h3
+      <div
+        class="plan-list__header-label"
         data-v-f3f1873f=""
       >
-        Plan
-      </h3>
+        <h3
+          data-v-f3f1873f=""
+        >
+          Plan
+        </h3>
+        <p
+          data-v-f3f1873f=""
+        >
+          Active Plans
+        </p>
+      </div>
+      <div
+        class="plan-list__search-wrapper"
+        data-v-f3f1873f=""
+      >
+        <input
+          autofocus=""
+          class="plan-list__search-input"
+          data-v-f3f1873f=""
+          placeholder="Search Plan Name"
+        />
+      </div>
+    </section>
+    <section
+      class="plan-list__left-section"
+      data-v-f3f1873f=""
+    >
+      <div
+        class="left-filter__wrapper"
+        data-v-d2507154=""
+        data-v-f3f1873f=""
+      >
+        <div
+          class="left-filter__item--active active"
+          data-v-d2507154=""
+        >
+          <h4
+            data-v-d2507154=""
+          >
+            ACTIVE
+          </h4>
+          <div
+            class="counter"
+            data-v-d2507154=""
+          >
+            <span
+              data-v-d2507154=""
+            >
+              0
+            </span>
+          </div>
+        </div>
+        <div
+          class="left-filter__item--inactive"
+          data-v-d2507154=""
+        >
+          <h4
+            data-v-d2507154=""
+          >
+            INACTIVE
+          </h4>
+          <div
+            class="counter"
+            data-v-d2507154=""
+          >
+            <span
+              data-v-d2507154=""
+            >
+              0
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="plan-list__no-content"
+      data-v-f3f1873f=""
+    >
       <p
+        class="plan-list__no-content-text"
         data-v-f3f1873f=""
       >
-        Active Plans
+        No Data
       </p>
-    </div>
-    <div
-      class="plan-list__search-wrapper"
-      data-v-f3f1873f=""
-    >
-      <input
-        autofocus=""
-        class="plan-list__search-input"
-        data-v-f3f1873f=""
-      />
-    </div>
-  </section>
-  <section
-    class="plan-list__left-section"
-    data-v-f3f1873f=""
-  >
-    <div
-      class="left-filter__wrapper"
-      data-v-d2507154=""
-      data-v-f3f1873f=""
-    >
-      <div
-        class="left-filter__item--active"
-        data-v-d2507154=""
-      >
-        <h4
-          data-v-d2507154=""
-        >
-          ACTIVE
-        </h4>
-        <div
-          class="counter"
-          data-v-d2507154=""
-          style="border: 2px solid #4caf50;"
-        >
-          <span
-            data-v-d2507154=""
-          >
-            0
-          </span>
-        </div>
-      </div>
-      <div
-        class="left-filter__item--inactive"
-        data-v-d2507154=""
-      >
-        <h4
-          data-v-d2507154=""
-        >
-          INACTIVE
-        </h4>
-        <div
-          class="counter"
-          data-v-d2507154=""
-          style="border: 2px solid #1e88e5;"
-        >
-          <span
-            data-v-d2507154=""
-          >
-            0
-          </span>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section
-    class="plan-list__no-content"
-    data-v-f3f1873f=""
-  >
-    <p
-      class="plan-list__no-content-text"
-      data-v-f3f1873f=""
-    >
-      No Data
-    </p>
-  </section>
+    </section>
+  </div>
+  <!--v-if-->
+  
 </div>
 `;
