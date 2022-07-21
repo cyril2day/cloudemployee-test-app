@@ -15,8 +15,7 @@ const { showCreatePopup } = storeToRefs(useAppStore())
 const filteredPlans = ref<Plan[]>([]),
    filterType = ref('Active')
 
-const searchText = ref(''),
-   isFetchingData = ref(false)
+const searchText = ref('')
 
 const searchInputEl = ref<HTMLInputElement | null>(null)
 
@@ -38,13 +37,11 @@ async function onItemDelete(event: boolean) {
 
 async function Fetch() {
    try {
-      isFetchingData.value = true
       await usePlanStore().Fetch()
 
       usePlanStore().GetPlans(flattenedData.value)
       usePlanStore().GetPlanChildren(flattenedData.value)
    } catch {
-      isFetchingData.value = false
    }
 
 }
@@ -120,7 +117,7 @@ watch(
          </description-list>
       </section>
       <section v-else class="plan-list__no-content">
-         <p class='plan-list__no-content-text'>No Data</p>
+         <p class='plan-list__no-content-text'>{{ 'No Data' }}</p>
       </section>
    </div>
 
@@ -211,6 +208,7 @@ watch(
       grid-row: 1/10;
    }
 
+   .plan-list__no-content,
    .plan-list__content {
       grid-column: 3/13;
       grid-row: 2/10;
