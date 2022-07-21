@@ -67,8 +67,7 @@ function onCreateSuccess(event: any) {
 onBeforeMount(async() => { await Fetch() })
 
 
-watch(
-   usePlanStore().$state,
+watchEffect(
    () => {
       if (plans.value.length)
          filteredPlans.value = plans.value.filter(plan => plan.status === filterType.value)
