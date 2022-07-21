@@ -21,12 +21,15 @@ exports[`Description List Component Snapshot Test > Elements and styles renders 
       data-v-238432e0=""
     >
       <div
+        class="list__status-circle"
         data-v-238432e0=""
       >
-        <i
-          class="cib-discover"
+        <span
+          class="list__status-child-count"
           data-v-238432e0=""
-        />
+        >
+          0
+        </span>
       </div>
     </div>
     <div
@@ -69,12 +72,15 @@ exports[`Description List Component Snapshot Test > Elements and styles renders 
       data-v-238432e0=""
     >
       <div
+        class="list__status-circle"
         data-v-238432e0=""
       >
-        <i
-          class="cib-discover"
+        <span
+          class="list__status-child-count"
           data-v-238432e0=""
-        />
+        >
+          0
+        </span>
       </div>
     </div>
     <div

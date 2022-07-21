@@ -1,15 +1,18 @@
+import { createTestingPinia } from "@pinia/testing"
 import { mount } from "@vue/test-utils"
 import { mergeWith } from "lodash"
 import { TestMountingOptions } from "../../../utils/test-hooks"
 import DescriptionListVue from "../DescriptionList.vue"
 
 
+const pinia = createTestingPinia()
+
 const data = [{ _id: '123abc', name: 'Plan 1', description: 'Sample description only', type: 'Plan', status: 'Active' }]
 
 const createWrapper = (overrides?: TestMountingOptions) => {
    const defaultMountingOptions: TestMountingOptions = {
       global: {
-         //
+         plugins: [pinia]
       },
       props: {
          data: data
@@ -51,11 +54,11 @@ describe('Description List Component Unit Test', () => {
       expect(wrapper.find('dl').element.classList.contains('list__wrapper')).toBe(true)
    })
 
-   test('has status icon present on the page', () => {
+   test('has indicator for num of child icon on each list', () => {
       expect.assertions(1)
       const wrapper = createWrapper()
       
-      expect(wrapper.find('i').element.classList.contains('cib-discover')).toBe(true)
+      expect(wrapper.find('.list__status-circle span').element.classList.contains('list__status-child-count')).toBe(true)
    })
 })
 
