@@ -9,11 +9,18 @@ import { Plan } from '../../types/plan';
 
 const { plans, flattenedData } = storeToRefs(usePlanStore())
 
-const filteredPlans = ref<Plan[]>([])
-const searchText = ref('')
+const filteredPlans = ref<Plan[]>([]),
+   filterType = ref('Active')
+
+const searchText = ref(''),
+   isFetchingData = ref(false)
 
 async function onSearch() {
-   filteredPlans.value = plans.value.filter(plan => plan.name.toLowerCase().includes(searchText.value.toLowerCase()))
+   filteredPlans.value = 
+      plans.value.filter(plan => {
+         return plan.status === filterType.value &&
+            plan.name.toLowerCase().includes(searchText.value.toLowerCase())
+      })
 }
 
 async function onItemDelete(event: boolean) {
@@ -25,10 +32,20 @@ async function onItemDelete(event: boolean) {
 }
 
 async function Fetch() {
-   await usePlanStore().Fetch()
+   try {
+      isFetchingData.value = true
+      await usePlanStore().Fetch()
 
-   usePlanStore().GetPlans(flattenedData.value)
-   usePlanStore().GetPlanChildren(flattenedData.value)
+      usePlanStore().GetPlans(flattenedData.value)
+      usePlanStore().GetPlanChildren(flattenedData.value)
+   } catch {
+      isFetchingData.value = false
+   }
+
+}
+
+function handleFilterType(type: string) {
+   filterType.value = type
 }
 
 onBeforeMount(async() => {
@@ -38,7 +55,7 @@ onBeforeMount(async() => {
 watchEffect(() => {
    const { plans } = storeToRefs(usePlanStore())
    
-   filteredPlans.value = plans.value
+   filteredPlans.value = plans.value.filter(plan => plan.status === filterType.value)
 })
 </script>
 
@@ -47,20 +64,21 @@ watchEffect(() => {
       <section class='plan-list__header'>
          <div class='plan-list__header-label'>
             <h3>Plan</h3>
-            <p>Active Plans</p>
+            <p>{{ filterType }} Plans</p>
          </div>
          <div class='plan-list__search-wrapper'>
             <input
                v-model='searchText'
                autofocus
                class='plan-list__search-input'
+               placeholder='Search Plan Name'
                @keyup="onSearch"
             />
          </div>
       </section>
 
       <section class='plan-list__left-section'>
-         <left-filter :plans="plans" />
+         <left-filter :plans="plans" @filter-type='handleFilterType' />
       </section>
 
       <section v-if="filteredPlans.length" class='plan-list__content'>
@@ -127,17 +145,37 @@ watchEffect(() => {
    }
 }
 
+.plan-list__search-input {
+   padding: 0 20px;
+}
+
 .plan-list__left-section {
-   display: none;
+   grid-column: 1/13;
+   grid-row: 2;
 } 
 
-.plan-list__content {
+.left-filter__wrapper {
+   flex-direction: row;
+   margin: 0 20px;
+}
 
+.left-filter__item--active,
+.left-filter__item--inactive {
+   flex-shrink: 1;
+}
+
+.plan-list__no-content,
+.plan-list__content {
    grid-column: span 13;
    margin: 10px 20px;
 }
 
 @media screen and (min-width: $sm) {
+   .left-filter__wrapper {
+      display: block;
+      margin: 0;
+   }
+
    .plan-list__left-section {
       display: block;
       grid-column: 1/3;
