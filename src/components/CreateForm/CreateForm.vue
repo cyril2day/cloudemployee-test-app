@@ -34,6 +34,7 @@ function handleNameChanged() {
          <label for='name'>Name</label>
          <input
             v-model='data'
+            autocomplete='off'
             type='text'
             name='name'
             id='name'

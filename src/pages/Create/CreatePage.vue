@@ -50,7 +50,13 @@ watchEffect(() => {
          <!-- Form Contents -->
          <div class='form-item'>
             <label for='description'>Description</label>
-            <input v-model='newPlan.description' type='text' name='description' id='description'/>
+            <input
+               v-model='newPlan.description'
+               autocomplete='off'
+               type='text'
+               name='description'
+               id='description'
+            />
          </div>
 
          <div class='form-item'>

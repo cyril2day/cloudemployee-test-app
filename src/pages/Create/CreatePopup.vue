@@ -74,6 +74,7 @@ watch(
                <label for='description'>Description</label>
                <input
                   v-model='data.description'
+                  autocomplete='off'
                   type='text'
                   name='description'
                   id='description'
