@@ -73,6 +73,10 @@ function createNewPlan() {
 
    .header__menu-toggler {
       margin: 8px 0;
+
+      &:active {
+         color: var(--blue1);
+      }
    }
 
    button:hover {
