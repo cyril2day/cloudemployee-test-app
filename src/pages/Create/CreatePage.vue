@@ -7,11 +7,12 @@ import { Plan } from '../../types/plan';
 import { NewPlan, newPlanDefaultValue } from './create'
 
 
-const breakpoints = useBreakpoints({ laptop: 1024 })
+const MIN_DESKTOP_WIDTH = 1024
 const router = useRouter()
 const { plans } = storeToRefs(usePlanStore())
 
 const newPlan = ref<NewPlan>({ ...newPlanDefaultValue })
+const { width } = useWindowSize()
 
 async function onFormSubmit(event: Pick<Plan, 'name' | 'type'>) {
    newPlan.value = { ...newPlan.value, name: event.name, type: event.type }
@@ -33,10 +34,9 @@ function handleOnNameChanged(name: string) {
    newPlan.value.name = name
 }
 
-onMounted(() => {
-   if (breakpoints.greater('laptop').value) {
-      router.push('PlanList')
-   }
+watchEffect(() => {
+   if (width.value > MIN_DESKTOP_WIDTH)
+      router.push({ name: 'PlanList' })
 })
 </script>
 
