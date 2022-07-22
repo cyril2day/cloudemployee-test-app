@@ -60,10 +60,14 @@ function handleNameChanged() {
 
 .form-item {
    margin-top: 20px;
+   box-sizing: border-box;
 
    input, select, button {
       width: 100%;
       padding: 10px;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
    }
 
    button {
