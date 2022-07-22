@@ -10,7 +10,7 @@ import useAppStore from '../../stores/app';
 
 
 const { plans, flattenedData, planChildren } = storeToRefs(usePlanStore())
-const { showCreatePopup, searchInput, filterType: storeFilterType } = storeToRefs(useAppStore())
+const { showCreatePopup, filterType: storeFilterType } = storeToRefs(useAppStore())
 
 const filteredPlans = ref<Plan[]>([]),
    filterType = ref(storeFilterType.value)
@@ -25,8 +25,6 @@ async function onSearch() {
          return plan.status === filterType.value &&
             plan.name.toLowerCase().includes(searchText.value.toLowerCase())
       })
-
-   searchInput.value = searchText.value
 }
 
 async function onItemDelete(event: boolean) {
@@ -71,11 +69,6 @@ onBeforeMount(async() => {
    await Fetch() 
 
    filterType.value = storeFilterType.value
-})
-
-onMounted(() => {
-   if (filteredPlans.value.length && searchInput.value)
-      searchText.value = searchInput.value
 })
 
 
