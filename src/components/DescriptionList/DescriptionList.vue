@@ -89,4 +89,20 @@ function getNumOfChild(item: Plan) {
    margin: 0;
    padding: 5px 2px;
 }
+
+.list__actions {
+   button {
+      padding: 6px;
+      &:active {
+         transform: translateY(2px);
+         background: #cccdd2f6;
+         border-radius: 3px;
+      }
+      align-self: center;
+   }
+
+   i {
+      display: flex;
+   }
+}
 </style>
