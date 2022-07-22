@@ -4,10 +4,9 @@ import { createPlan } from '../../api/plan';
 import CreateForm from '../../components/CreateForm/CreateForm.vue'
 import usePlanStore from '../../stores/plan';
 import { Plan } from '../../types/plan';
-import { NewPlan, newPlanDefaultValue } from './create'
+import { MIN_DESKTOP_WIDTH, NewPlan, newPlanDefaultValue } from './create'
 
 
-const MIN_DESKTOP_WIDTH = 1024
 const router = useRouter()
 const { plans } = storeToRefs(usePlanStore())
 

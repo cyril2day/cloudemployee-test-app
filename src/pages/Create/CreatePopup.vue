@@ -3,7 +3,7 @@ import { createPlan } from '../../api/plan';
 import CreateForm from '../../components/CreateForm/CreateForm.vue';
 import useAppStore from '../../stores/app';
 import { Plan } from '../../types/plan';
-import { NewPlan, newPlanDefaultValue } from './create'
+import { MIN_DESKTOP_WIDTH, NewPlan, newPlanDefaultValue } from './create'
 
 
 const emit = defineEmits(['createSuccess'])
@@ -16,6 +16,7 @@ const props = defineProps({
 
 const shown = ref(false)
 const data = ref<NewPlan>({ ...newPlanDefaultValue })
+const { width } = useWindowSize()
 
 
 function handleClose() {
@@ -45,6 +46,14 @@ async function onFormSubmit(event: Pick<Plan, 'name' | 'type'>) {
 watch(
    () => props.show,
    () => { shown.value = props.show }
+)
+
+watch(
+   () => width.value,
+   () => {
+      if (width.value < MIN_DESKTOP_WIDTH)
+         handleClose()
+   }
 )
 </script>
 
