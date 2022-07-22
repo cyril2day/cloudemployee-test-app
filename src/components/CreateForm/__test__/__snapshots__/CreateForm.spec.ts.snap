@@ -24,6 +24,7 @@ exports[`Create Form Component Snapshot Test > Elements and styles renders corre
       Name
     </label>
     <input
+      autocomplete="off"
       id="name"
       name="name"
       type="text"
