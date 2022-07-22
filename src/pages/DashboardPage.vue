@@ -15,5 +15,6 @@ iframe {
    width: 100%;
    gap: 2px;
    background: var(--background-white);
+   border: none;
 } 
 </style>
