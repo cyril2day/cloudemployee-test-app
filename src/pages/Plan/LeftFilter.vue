@@ -75,6 +75,7 @@ watchEffect(
    display: flex;
    justify-content: flex-end;
    font-size: 0.8em;
+   padding: 8px 0;
 }
 
 .left-filter__item--inactive,
@@ -87,20 +88,28 @@ watchEffect(
    border: 1px solid #fff;
    border-radius: 5px;
 
+
    h4, div {
       display: inline-block;
       margin: 5px;
    }
 
-   div {
+   .counter {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-content: center;
+      min-width: 13px;
+      min-height: 13px;
       border: none;
-      width: 10px;
       height: 14px;
       border-radius: 20px;
       padding: 2px;
+      box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
    }
    span {
       font-size: 0.8em;
+      align-self: center;
    }
 }
 
