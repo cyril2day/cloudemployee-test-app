@@ -85,6 +85,10 @@ function createNewPlan() {
 
    .header__create-plan:hover {
       background: var(--green6);
+
+      &:active {
+         transform: translateY(1px);
+      }
    }
 }
 
