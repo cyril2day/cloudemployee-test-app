@@ -15,6 +15,10 @@ const props = defineProps({
       type: Object as PropType<Plan[]>,
       required: true,
       default: []
+   },
+   filterType: {
+      type: String,
+      default: 'Active'
    }
 })
 
@@ -39,6 +43,10 @@ watchEffect(
          planStates.value.active = props.plans.filter(plan => plan.status === 'Active').length
    }
 )
+
+onMounted(() => {
+   handleSelectedFilterType(props.filterType)
+})
 </script>
 
 <template>

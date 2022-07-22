@@ -5,11 +5,15 @@ import { reactive, toRefs } from 'vue'
 
 type State = {
    showCreatePopup: boolean
+   searchInput: string
+   filterType: 'Active' | 'Inactive'
 }
 
 const useAppStore = defineStore('app', () => {
    const state = reactive<State>({
-      showCreatePopup: false
+      showCreatePopup: false,
+      searchInput: '',
+      filterType: 'Active'
    })
 
 

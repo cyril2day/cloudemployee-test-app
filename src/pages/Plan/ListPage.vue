@@ -10,10 +10,10 @@ import useAppStore from '../../stores/app';
 
 
 const { plans, flattenedData, planChildren } = storeToRefs(usePlanStore())
-const { showCreatePopup } = storeToRefs(useAppStore())
+const { showCreatePopup, searchInput, filterType: storeFilterType } = storeToRefs(useAppStore())
 
 const filteredPlans = ref<Plan[]>([]),
-   filterType = ref('Active')
+   filterType = ref(storeFilterType.value)
 
 const searchText = ref('')
 
@@ -25,6 +25,8 @@ async function onSearch() {
          return plan.status === filterType.value &&
             plan.name.toLowerCase().includes(searchText.value.toLowerCase())
       })
+
+   searchInput.value = searchText.value
 }
 
 async function onItemDelete(event: boolean) {
@@ -32,6 +34,7 @@ async function onItemDelete(event: boolean) {
       await Fetch()
 
       filteredPlans.value = plans.value
+      onSearch()
    }
 }
 
@@ -46,8 +49,8 @@ async function Fetch() {
 
 }
 
-function handleFilterType(type: string) {
-   filterType.value = type
+function handleFilterType(type: 'Active' | 'Inactive') {
+   filterType.value = storeFilterType.value = type
 }
 
 function onCreateSuccess(event: any) {
@@ -64,7 +67,16 @@ function onCreateSuccess(event: any) {
    showCreatePopup.value = false
 }
 
-onBeforeMount(async() => { await Fetch() })
+onBeforeMount(async() => {
+   await Fetch() 
+
+   filterType.value = storeFilterType.value
+})
+
+onMounted(() => {
+   if (filteredPlans.value.length && searchInput.value)
+      searchText.value = searchInput.value
+})
 
 
 watchEffect(
@@ -106,7 +118,7 @@ watch(
       </section>
 
       <section class='plan-list__left-section'>
-         <left-filter :plans='plans' @filter-type='handleFilterType' />
+         <left-filter :plans='plans' :filter-type='filterType' @filter-type='handleFilterType' />
       </section>
 
       <section v-if="filteredPlans.length" class='plan-list__content'>
