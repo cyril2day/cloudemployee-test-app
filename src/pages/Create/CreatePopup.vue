@@ -28,8 +28,6 @@ function handleOnNameChanged(name: string) {
    data.value.name = name
 }
 
-onKeyStroke('Escape', () => { handleClose() })
-
 async function onFormSubmit(event: Pick<Plan, 'name' | 'type'>) {
    data.value = { ...data.value, name: event.name, type: event.type }
 
@@ -42,6 +40,8 @@ async function onFormSubmit(event: Pick<Plan, 'name' | 'type'>) {
       console.error(err)
    })
 }
+
+onKeyStroke('Escape', () => { handleClose() })
 
 watch(
    () => props.show,
@@ -64,7 +64,6 @@ watch(
       </div>
 
       <div class='create__form'>
-
          <create-form
             form-type='Plan'
             @formSubmit='onFormSubmit'
@@ -116,7 +115,7 @@ watch(
 
 .create__form {
    background: var(--white);
-   width: 60vw;
+   width: 50vw;
    margin: 90px auto;
    padding: 24px;
    border-radius: 10px;

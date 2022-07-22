@@ -29,6 +29,10 @@ async function onFormSubmit(event: Pick<Plan, 'name' | 'type'>) {
    router.push({ name: 'PlanList' })
 }
 
+function back() {
+   router.back()
+}
+
 function handleOnNameChanged(name: string) {
    newPlan.value.name = name
 }
@@ -41,7 +45,17 @@ watchEffect(() => {
 
 <template>
    <div class='create-form__wrapper'>
-      <create-form form-type='Plan' @formSubmit='onFormSubmit' @on-name-changed='handleOnNameChanged'>
+      <div class='create-form__navigation'>
+         <button @click='back' class='create-form__navigation--back'>
+            <i class="cil-arrow-left"></i>
+         </button>
+      </div>
+
+      <create-form
+         form-type='Plan'
+         @formSubmit='onFormSubmit'
+         @on-name-changed='handleOnNameChanged'
+      >
          <!-- Form Header -->
          <template #form-header>
             <h3>Create Plan</h3>
@@ -89,4 +103,28 @@ watchEffect(() => {
    height: 90vh;
    background: var(--background-white);
 } 
+
+.create-form__navigation {
+   margin: 10px 40px; 
+   display: flex;
+
+   button {
+      cursor: pointer;
+      border: none;
+      padding: 10px;
+
+      &:hover {
+         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      }
+
+      &:active {
+         transform: translateY(3px);
+      }
+   }
+   i {
+      display: flex;
+      font-weight: bolder;
+      font-size: 1.5em;
+   }
+}
 </style>

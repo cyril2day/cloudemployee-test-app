@@ -21,7 +21,7 @@ function handleNameChanged() {
 </script>
 
 <template>
-   <div class='form__wrapper'>
+   <div ref='createForm' class='form__wrapper'>
       <!-- Form Header -->
       <div class='form-header'>
          <slot name='form-header'>
@@ -74,10 +74,17 @@ function handleNameChanged() {
    button {
       margin: 20px auto;
       border-radius: 5px;
-      color: var(--dark);
+      border:none;
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      background: var(--blue2);
+      color: var(--white);
       font-family: 'Rubik-Medium';
       font-size: 1.2em;
       transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+
+      &:active {
+         transform: translateY(3px);
+      }
    }
 }
 
