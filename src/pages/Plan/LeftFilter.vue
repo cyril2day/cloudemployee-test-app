@@ -120,10 +120,12 @@ watchEffect(
          height: 150px;
          box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
          margin-bottom: 18px;
+         margin-top: 8px;
+         margin-left: 8px;
       }
 
       h4 {
-         margin: 20px auto;
+         margin: 10px auto;
          text-align: center;
          font-family: 'Rubik-Medium';
          font-size: 0.8em;
@@ -133,8 +135,9 @@ watchEffect(
          display: flex;
          width: 40px;
          height: 40px;
-         margin: 0px auto;
+         margin: 10px auto;
          border-radius: 40px;
+         box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 
          justify-content: center;
          align-items: center;
