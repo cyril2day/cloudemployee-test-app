@@ -18,15 +18,16 @@ async function onFormSubmit(event: Pick<Plan, 'name' | 'type'>) {
 
    await createPlan(newPlan.value)
    .then(res => {
+      if (res.data.errors) return
+
       plans.value = res.data
 
       newPlan.value = { ...newPlanDefaultValue }
+      router.push({ name: 'PlanList' })
    })
    .catch(err => {
       console.error(err)
    })
-
-   router.push({ name: 'PlanList' })
 }
 
 function back() {
