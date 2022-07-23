@@ -70,7 +70,7 @@
 
 @media screen and (min-width: $sm) and (max-width: $lg) {
    .app__wrapper {
-      grid-template-rows: repeat(12, 1fr);
+      grid-template-rows: repeat(12, minmax(200px, auto));
    }
 
    .header__main {
