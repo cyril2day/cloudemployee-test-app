@@ -116,7 +116,7 @@ watch(
 .create__form {
    background: var(--white);
    width: 50vw;
-   margin: 90px auto;
+   margin: 40px auto;
    padding: 24px;
    border-radius: 10px;
 }
@@ -145,6 +145,12 @@ watch(
          background: #d1d4daef;
          color: var(--dark);
       }
+   }
+}
+
+@media screen and (min-width: $md) {
+   .create__form {
+      margin: 100px auto;
    }
 }
 </style>
