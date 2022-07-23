@@ -22,6 +22,7 @@ const { width } = useWindowSize()
 function handleClose() {
    shown.value = false
    useAppStore().showCreatePopup = false
+   data.value = { ...newPlanDefaultValue }
 }
 
 function handleOnNameChanged(name: string) {
