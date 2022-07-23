@@ -33,7 +33,7 @@ function createNewPlan() {
 
          <div class='header__nav-actions'>
             <button
-               v-if="route.name === 'PlanList'"
+               v-if="route.name === 'Plan List'"
                class="header__create-plan"
                @click='createNewPlan'
             >New Plan</button>
