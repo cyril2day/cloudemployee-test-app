@@ -154,11 +154,12 @@ watch(
 .plan-list__header-label {
    display: flex; 
    flex-direction: column;
-   justify-content: space-evenly;
+   justify-content: flex-end;
    min-width: 100px;
 
    * {
       margin: 0;
+      margin-top: 10px;
       padding: 0;
    }
 
@@ -170,13 +171,15 @@ watch(
 .plan-list__search-wrapper {
    display: flex;
    width: 350px;
+   justify-content: flex-end;
 
    input {
-      align-self: center;
+      align-self: flex-end;
       height: 30px;
-      width: 100%;
+      width: 40vw;
       font-size: 0.8em;
       text-align: right;
+      font-size: 0.8em;
    }
 }
 
@@ -246,7 +249,11 @@ watch(
    }
 
    .plan-list__search-wrapper {
-      width: 250px;       
+      input {
+         align-self: flex-end;
+         width: 100%;
+         font-size: 0.9em;
+      }
    }
 }
 </style>
