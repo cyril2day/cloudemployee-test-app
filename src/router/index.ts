@@ -9,7 +9,7 @@ const routes = [
    },
    {
       path: '/plan',
-      name: 'PlanList',
+      name: 'Plan List',
       component: () => import('src/pages/Plan/ListPage.vue')
    },
    {

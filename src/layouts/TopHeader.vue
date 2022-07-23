@@ -29,7 +29,7 @@ function createNewPlan() {
 <template>
    <header class='header__main'>
       <nav class='header__nav'>
-         <h4 class='header__nav-brand'>Plan Action</h4>
+         <h4 class='header__nav-brand'>{{ route.name }}</h4>
 
          <div class='header__nav-actions'>
             <button
