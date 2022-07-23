@@ -6,7 +6,7 @@ const src = 'https://continuity2.com'
    <iframe :src='src' />
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 iframe {
    display: grid;
    grid-template-columns: repeat(12, 1fr);
@@ -17,4 +17,10 @@ iframe {
    background: var(--background-white);
    border: none;
 } 
+
+@media screen and (min-width: $sm) and (max-width: $lg) {
+   .app__wrapper {
+      grid-template-rows: repeat(4, minmax(80px, auto))!important;
+   }
+}
 </style>
