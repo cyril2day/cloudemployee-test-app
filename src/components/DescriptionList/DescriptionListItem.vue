@@ -23,7 +23,7 @@ const props = defineProps({
    }
 })
 
-const width = ref('')
+const width = ref<string | number>(0)
 const grow = ref(0)
 
 const trim = (word: unknown) => {
@@ -31,9 +31,11 @@ const trim = (word: unknown) => {
       return word.slice(0, props.trim) + '...'
 }
 
+// const { width: deviceWidth } = useWindowSize()
+
 watchEffect(() => {
    if (props.width)
-      width.value = `${props.width}px`
+      width.value = props.width + 'px'
 
    if (props.grow)
       grow.value = props.grow
@@ -60,9 +62,22 @@ watchEffect(() => {
 }
 
 @media screen and (min-width: $sm) {
+   .list__items {
+      min-width: 940px;
+   }
+
    .list-item__wrapper {
       width: v-bind(width);
    }
 }
 
+@media screen and (min-width: 780px) and (max-width: $sm) {
+   .list__items {
+      min-width: 940px;
+   }
+   
+   .list-item__wrapper {
+      width: v-bind(width);
+   }
+}
 </style>

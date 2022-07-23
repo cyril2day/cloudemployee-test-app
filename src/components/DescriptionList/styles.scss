@@ -111,7 +111,7 @@
    }
 
    .list__status-indicator {
-      grid-column: 1/8;
+      grid-column: 2/8;
       padding: 10px;
       justify-content: flex-start!important;
 
@@ -121,7 +121,7 @@
    }
 
    .list__actions {
-      grid-column: 8/17;
+      grid-column: 8/16;
       justify-content: flex-end!important;
    }
 }

@@ -118,10 +118,10 @@ watch(
          <description-list :data='filteredPlans' @item-delete='onItemDelete'>
             <template v-slot="{ val }">
                <description-list-item label='ID' :value="val['_id']" :width="80" :trim="6" />
-               <description-list-item label='Name' :value="val['name']" :width="90" />
-               <description-list-item label='Description' :value="val['description']" :grow="0.8" />
-               <description-list-item label='Type' :value="val['type']" :width="90" />
-               <description-list-item label='Status' :value="val['status']" :width="90" />
+               <description-list-item label='Name' :value="val['name']" :width="120" />
+               <description-list-item label='Description' :value="val['description']" :width="180" />
+               <description-list-item label='Type' :value="val['type']" :width="70" />
+               <description-list-item label='Status' :value="val['status']" :width="70" />
             </template>
          </description-list>
       </section>
@@ -218,6 +218,10 @@ watch(
       display: block;
       grid-column: 1/3;
       grid-row: 1/10;
+   }
+
+   .plan-list__content {
+      overflow-x: auto;
    }
 
    .plan-list__no-content,
