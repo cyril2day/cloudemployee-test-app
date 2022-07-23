@@ -116,7 +116,7 @@ watch(
 .create__form {
    background: var(--white);
    width: 50vw;
-   margin: 40px auto;
+   margin: 25px auto;
    padding: 24px;
    border-radius: 10px;
 }
