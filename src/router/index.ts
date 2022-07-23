@@ -1,5 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import DashboardPage from 'src/pages/DashboardPage.vue'
+import NProgress from 'nprogress'
+
+
+NProgress.configure({ showSpinner: false })
 
 const routes = [
    {
@@ -29,5 +33,8 @@ const router = createRouter({
    history: createWebHistory(),
    routes
 })
+
+router.beforeEach(() => { NProgress.start() })
+router.afterEach(() => { NProgress.done() })
 
 export default router

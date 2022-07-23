@@ -21,3 +21,22 @@ h1,h2,h3,h4 {
 h1,h2 {
    font-size: 1.2em;
 }
+
+#nprogress {
+  position: absolute;
+  top: 0;
+  height: 3px;
+  z-index: 9999;
+  .bar {
+    background: var(--blue8);
+  }
+
+  .peg {
+    box-shadow: 0 0 10px var(--blue8), 0 0 5px var(--blue8);
+  }
+
+  .spinner-icon {
+    border-top-color: var(--blue8);
+    border-left-color: var(--blue8);
+  }
+}
