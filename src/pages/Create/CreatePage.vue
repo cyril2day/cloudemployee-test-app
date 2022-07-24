@@ -23,7 +23,7 @@ async function onFormSubmit(event: Pick<Plan, 'name' | 'type'>) {
       plans.value = res.data
 
       newPlan.value = { ...newPlanDefaultValue }
-      router.push({ name: 'PlanList' })
+      router.push({ name: 'Plan List' })
    })
    .catch(err => {
       console.error(err)
