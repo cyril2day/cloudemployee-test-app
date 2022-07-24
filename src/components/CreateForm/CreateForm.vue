@@ -18,6 +18,12 @@ function submit() {
 function handleNameChanged() {
    emit('onNameChanged', data.value)
 }
+
+onKeyStroke('Enter', (e) => {
+   e.preventDefault()
+
+   submit()
+})
 </script>
 
 <template>
